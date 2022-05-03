@@ -50,6 +50,7 @@ namespace Covid19_Recommender_System
             questions[0] = chkMasks;
             questions[1] = chkSanitize;
             questions[2] = chkSocial;
+
         }
 
         private void lstAllSymptoms_DoubleClick(object sender, EventArgs e)
@@ -64,17 +65,23 @@ namespace Covid19_Recommender_System
         private void rdoVaccinated_CheckedChanged(object sender, EventArgs e)
         {
             vaccination = rdoVaccinated.Text;
+            cmbVaccine.Enabled = true;
         }
 
         private void rdoNotVaccinated_CheckedChanged(object sender, EventArgs e)
         {
             vaccination = rdoNotVaccinated.Text;
+            cmbVaccine.Enabled = false;
+            cmbVaccine.Text = "No Vaccine";
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             int questionCount = 0;
             string questionAnswers = "";
+
+            string recommand = "";
+            string details = "";
 
             for (int i = 0; i < 3; i++)
             {
@@ -91,18 +98,27 @@ namespace Covid19_Recommender_System
 
             txtRecommendation.ForeColor = Color.White;
 
-            if (vaccination==rdoVaccinated.Text && questionCount==3 && lstYourSymptoms.Items.Count==0)
+            if (rdoVaccinated.Checked && questionCount==3 && lstYourSymptoms.Items.Count==0)
             {
                 txtRecommendation.BackColor = Color.Green;
+                recommand = "You are Safe! No action needed.";
             }
-            else if(vaccination == rdoNotVaccinated.Text && questionCount >= 1 && lstYourSymptoms.Items.Count <= 3)
+            else if(rdoNotVaccinated.Checked && questionCount >= 1 && lstYourSymptoms.Items.Count <= 3)
             {
                 txtRecommendation.BackColor = Color.Yellow;
+                recommand = "You may not Safe! Home quarantine recommended.";
             }
-            else if(vaccination == rdoNotVaccinated.Text && questionCount <= 2 && lstYourSymptoms.Items.Count > 3)
+            else if(rdoNotVaccinated.Checked && questionCount <= 2 && lstYourSymptoms.Items.Count > 3)
             {
                 txtRecommendation.BackColor = Color.Red;
+                recommand = "You may in Danger! Visit the closest treatment center.";
             }
+
+            details += "Name: " + txtName.Text;
+            details += "\nAge: " + nmcAge.Value.ToString() + " years old";
+            details += "\nNIC: " + txtNIC.Text;
+
+            
         }
     }
 }
