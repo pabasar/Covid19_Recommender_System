@@ -114,11 +114,40 @@ namespace Covid19_Recommender_System
                 recommand = "You may in Danger! Visit the closest treatment center.";
             }
 
+            details += "\n******* Personal Details *******\n";
             details += "Name: " + txtName.Text;
             details += "\nAge: " + nmcAge.Value.ToString() + " years old";
             details += "\nNIC: " + txtNIC.Text;
 
+            details += "\n******* Vaccination Details *******\n";
             
+            if(rdoNotVaccinated.Checked)
+            {
+                details += "\nNot Vaccinated";
+            }
+            else if(rdoVaccinated.Checked)
+            {
+                details += "\nVaccine: "+cmbVaccine.Text;
+            }
+
+            details += "\n******* Symptoms *******\n";
+
+            if(lstYourSymptoms.Items.Count==0)
+            {
+                details += "No Symptoms";
+            }
+            else
+            {
+                details += lstYourSymptoms.Text;
+            }
+
+            details += "\n******* Health Questions *******\n";
+
+            details += questionAnswers;
+
+            details += "\n" + recommand;
+
+            txtRecommendation.Text = details;
         }
     }
 }
