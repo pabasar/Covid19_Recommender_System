@@ -51,6 +51,8 @@ namespace Covid19_Recommender_System
             questions[1] = chkSanitize;
             questions[2] = chkSocial;
 
+            txtRecommendation.BackColor = Color.Gray;
+
         }
 
         private void lstAllSymptoms_DoubleClick(object sender, EventArgs e)
@@ -82,6 +84,7 @@ namespace Covid19_Recommender_System
 
             string recommand = "";
             string details = "";
+            string symptoms = "";
 
             for (int i = 0; i < 3; i++)
             {
@@ -96,6 +99,14 @@ namespace Covid19_Recommender_System
                 }
             }
 
+            if (lstYourSymptoms.Items.Count != 0)
+            {
+                for(int i=0;i<lstYourSymptoms.Items.Count;i++)
+                {
+                    symptoms += lstYourSymptoms.Items[i].ToString() + "\n";
+                }
+            }
+
             txtRecommendation.ForeColor = Color.White;
 
             if (rdoVaccinated.Checked && questionCount==3 && lstYourSymptoms.Items.Count==0)
@@ -103,23 +114,23 @@ namespace Covid19_Recommender_System
                 txtRecommendation.BackColor = Color.Green;
                 recommand = "You are Safe! No action needed.";
             }
-            else if(rdoNotVaccinated.Checked && questionCount >= 1 && lstYourSymptoms.Items.Count <= 3)
+            else if(lstYourSymptoms.Items.Count <= 3 && lstYourSymptoms.Items.Count >= 1)
             {
-                txtRecommendation.BackColor = Color.Yellow;
+                txtRecommendation.BackColor = Color.Orange;
                 recommand = "You may not Safe! Home quarantine recommended.";
             }
-            else if(rdoNotVaccinated.Checked && questionCount <= 2 && lstYourSymptoms.Items.Count > 3)
+            else if(lstYourSymptoms.Items.Count > 3)
             {
                 txtRecommendation.BackColor = Color.Red;
                 recommand = "You may in Danger! Visit the closest treatment center.";
             }
 
-            details += "\n******* Personal Details *******\n";
+            details += "\r\n******* Personal Details *******\n";
             details += "Name: " + txtName.Text;
             details += "\nAge: " + nmcAge.Value.ToString() + " years old";
             details += "\nNIC: " + txtNIC.Text;
 
-            details += "\n******* Vaccination Details *******\n";
+            details += "\r\n******* Vaccination Details *******\n";
             
             if(rdoNotVaccinated.Checked)
             {
@@ -130,7 +141,7 @@ namespace Covid19_Recommender_System
                 details += "\nVaccine: "+cmbVaccine.Text;
             }
 
-            details += "\n******* Symptoms *******\n";
+            details += "\r\n******* Symptoms *******\n";
 
             if(lstYourSymptoms.Items.Count==0)
             {
@@ -138,12 +149,14 @@ namespace Covid19_Recommender_System
             }
             else
             {
-                details += lstYourSymptoms.Text;
+                details += symptoms;
             }
 
-            details += "\n******* Health Questions *******\n";
+            details += "\r\n******* Health Questions *******\n";
 
             details += questionAnswers;
+
+            details += "\r\n******* Recommendation *******\n";
 
             details += "\n" + recommand;
 
