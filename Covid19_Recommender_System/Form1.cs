@@ -19,6 +19,8 @@ namespace Covid19_Recommender_System
 
         string vaccination;
 
+        CheckBox[] questions = new CheckBox[3];
+
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
@@ -44,6 +46,10 @@ namespace Covid19_Recommender_System
             cmbVaccine.Items.Add("AstraZeneca");
             cmbVaccine.Items.Add("Sinopharm");
             cmbVaccine.Items.Add("Sputnik V");
+
+            questions[0] = chkMasks;
+            questions[1] = chkSanitize;
+            questions[2] = chkSocial;
         }
 
         private void lstAllSymptoms_DoubleClick(object sender, EventArgs e)
