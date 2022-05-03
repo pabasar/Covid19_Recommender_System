@@ -37,6 +37,13 @@ namespace Covid19_Recommender_System
             lstAllSymptoms.Sorted = true;
 
             rdoNotVaccinated.Select();
+
+            cmbVaccine.Text = "No Vaccine";
+            cmbVaccine.Items.Add("Pfizer");
+            cmbVaccine.Items.Add("Moderna");
+            cmbVaccine.Items.Add("AstraZeneca");
+            cmbVaccine.Items.Add("Sinopharm");
+            cmbVaccine.Items.Add("Sputnik V");
         }
 
         private void lstAllSymptoms_DoubleClick(object sender, EventArgs e)
