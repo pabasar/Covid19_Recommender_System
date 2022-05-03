@@ -68,6 +68,7 @@ namespace Covid19_Recommender_System
         {
             vaccination = rdoVaccinated.Text;
             cmbVaccine.Enabled = true;
+            cmbVaccine.SelectedIndex = 0;
         }
 
         private void rdoNotVaccinated_CheckedChanged(object sender, EventArgs e)
@@ -122,7 +123,7 @@ namespace Covid19_Recommender_System
             else if(lstYourSymptoms.Items.Count > 3)
             {
                 txtRecommendation.BackColor = Color.Red;
-                recommand = "You may in Danger! Visit the closest treatment center.";
+                recommand = "You may in Danger! Visit the nearest treatment center.";
             }
 
             details += "\r\n******* Personal Details *******\n";
@@ -130,18 +131,18 @@ namespace Covid19_Recommender_System
             details += "\nAge: " + nmcAge.Value.ToString() + " years old";
             details += "\nNIC: " + txtNIC.Text;
 
-            details += "\r\n******* Vaccination Details *******\n";
+            details += "\r\n\n******* Vaccination Details *******\n";
             
             if(rdoNotVaccinated.Checked)
             {
-                details += "\nNot Vaccinated";
+                details += "Not Vaccinated";
             }
             else if(rdoVaccinated.Checked)
             {
-                details += "\nVaccine: "+cmbVaccine.Text;
+                details += "Vaccine: "+cmbVaccine.Text;
             }
 
-            details += "\r\n******* Symptoms *******\n";
+            details += "\r\n\n******* Symptoms *******\n";
 
             if(lstYourSymptoms.Items.Count==0)
             {
@@ -152,15 +153,23 @@ namespace Covid19_Recommender_System
                 details += symptoms;
             }
 
-            details += "\r\n******* Health Questions *******\n";
+            details += "\r\n\n******* Health Questions *******";
 
             details += questionAnswers;
 
-            details += "\r\n******* Recommendation *******\n";
+            details += "\r\n\n******* Recommendation *******\n";
 
-            details += "\n" + recommand;
+            details += recommand;
 
             txtRecommendation.Text = details;
+        }
+
+        private void lstYourSymptoms_DoubleClick(object sender, EventArgs e)
+        {
+            if (lstYourSymptoms.Items.Count != 0)
+            {
+                lstYourSymptoms.Items.RemoveAt(lstYourSymptoms.SelectedIndices[0]);
+            }
         }
     }
 }

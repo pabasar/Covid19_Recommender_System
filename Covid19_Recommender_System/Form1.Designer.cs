@@ -221,6 +221,7 @@
             this.lstYourSymptoms.Name = "lstYourSymptoms";
             this.lstYourSymptoms.Size = new System.Drawing.Size(250, 124);
             this.lstYourSymptoms.TabIndex = 3;
+            this.lstYourSymptoms.DoubleClick += new System.EventHandler(this.lstYourSymptoms_DoubleClick);
             // 
             // lstAllSymptoms
             // 
