@@ -70,5 +70,39 @@ namespace Covid19_Recommender_System
         {
             vaccination = rdoNotVaccinated.Text;
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            int questionCount = 0;
+            string questionAnswers = "";
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (questions[i].Checked)
+                {
+                    questionAnswers += "\r\n" + questions[i].Text + " : Yes";
+                    questionCount++;
+                }
+                else
+                {
+                    questionAnswers += "\r\n" + questions[i].Text + " : No";
+                }
+            }
+
+            txtRecommendation.ForeColor = Color.White;
+
+            if (vaccination==rdoVaccinated.Text && questionCount==3 && lstYourSymptoms.Items.Count==0)
+            {
+                txtRecommendation.BackColor = Color.Green;
+            }
+            else if(vaccination == rdoNotVaccinated.Text && questionCount >= 1 && lstYourSymptoms.Items.Count <= 3)
+            {
+                txtRecommendation.BackColor = Color.Yellow;
+            }
+            else if(vaccination == rdoNotVaccinated.Text && questionCount <= 2 && lstYourSymptoms.Items.Count > 3)
+            {
+                txtRecommendation.BackColor = Color.Red;
+            }
+        }
     }
 }

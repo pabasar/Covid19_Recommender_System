@@ -302,6 +302,7 @@
             this.btnSubmit.TabIndex = 4;
             this.btnSubmit.Text = "Submit Details";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txtRecommendation
             // 
