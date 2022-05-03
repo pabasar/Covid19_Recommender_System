@@ -17,7 +17,7 @@ namespace Covid19_Recommender_System
             InitializeComponent();
         }
 
-
+        string vaccination;
 
         private void groupBox3_Enter(object sender, EventArgs e)
         {
@@ -26,22 +26,36 @@ namespace Covid19_Recommender_System
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
+            lstAllSymptoms.Items.Add("Fever");
+            lstAllSymptoms.Items.Add("Cough");
+            lstAllSymptoms.Items.Add("Tiredness");
+            lstAllSymptoms.Items.Add("Loss of taste or smell");
+            lstAllSymptoms.Items.Add("Sore throat");
+            lstAllSymptoms.Items.Add("Headache");
+            lstAllSymptoms.Items.Add("Difficulty Breathing");
+
+            lstAllSymptoms.Sorted = true;
+
+            rdoNotVaccinated.Select();
         }
 
         private void lstAllSymptoms_DoubleClick(object sender, EventArgs e)
         {
-            
+            if (lstAllSymptoms.Items.Count != 0)
+            {
+                lstYourSymptoms.Items.Add(lstAllSymptoms.Items[lstAllSymptoms.SelectedIndex]);
+                lstYourSymptoms.Sorted = true;
+            }
         }
 
         private void rdoVaccinated_CheckedChanged(object sender, EventArgs e)
         {
-            
+            vaccination = rdoVaccinated.Text;
         }
 
         private void rdoNotVaccinated_CheckedChanged(object sender, EventArgs e)
         {
-            
+            vaccination = rdoNotVaccinated.Text;
         }
     }
 }
