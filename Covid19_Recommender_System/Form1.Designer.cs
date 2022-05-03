@@ -310,7 +310,7 @@
             this.txtRecommendation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRecommendation.Location = new System.Drawing.Point(24, 629);
             this.txtRecommendation.Name = "txtRecommendation";
-            this.txtRecommendation.Size = new System.Drawing.Size(583, 137);
+            this.txtRecommendation.Size = new System.Drawing.Size(583, 166);
             this.txtRecommendation.TabIndex = 5;
             this.txtRecommendation.Text = "";
             // 
@@ -318,7 +318,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 790);
+            this.ClientSize = new System.Drawing.Size(633, 825);
             this.Controls.Add(this.txtRecommendation);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.groupBox4);

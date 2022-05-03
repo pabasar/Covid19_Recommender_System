@@ -118,12 +118,12 @@ namespace Covid19_Recommender_System
             else if(lstYourSymptoms.Items.Count <= 3 && lstYourSymptoms.Items.Count >= 1)
             {
                 txtRecommendation.BackColor = Color.Orange;
-                recommand = "You may not Safe! Home quarantine recommended.";
+                recommand = "You may be not Safe! Home quarantine recommended.";
             }
             else if(lstYourSymptoms.Items.Count > 3)
             {
                 txtRecommendation.BackColor = Color.Red;
-                recommand = "You may in Danger! Visit the nearest treatment center.";
+                recommand = "You may be in Danger! Visit the nearest treatment center.";
             }
 
             details += "\r\n******* Personal Details *******\n";
