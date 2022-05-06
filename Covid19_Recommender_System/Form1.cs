@@ -115,15 +115,15 @@ namespace Covid19_Recommender_System
                 txtRecommendation.BackColor = Color.Green;
                 recommand = "You are Safe! No action needed.";
             }
-            else if(lstYourSymptoms.Items.Count <= 3 && lstYourSymptoms.Items.Count >= 1)
+            if(lstYourSymptoms.Items.Count <= 3 && lstYourSymptoms.Items.Count >= 1 || questionCount<3 || rdoNotVaccinated.Checked)
             {
                 txtRecommendation.BackColor = Color.Orange;
-                recommand = "You may be not Safe! Home quarantine recommended.";
+                recommand = "You may not be Safe! Home quarantine is recommended.";
             }
-            else if(lstYourSymptoms.Items.Count > 3)
+            if(lstYourSymptoms.Items.Count > 3)
             {
                 txtRecommendation.BackColor = Color.Red;
-                recommand = "You may be in Danger! Visit the nearest treatment center.";
+                recommand = "You may be in Danger! Visit the nearest treatment centre.";
             }
 
             details += "\r\n******* Personal Details *******\n";

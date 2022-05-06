@@ -262,16 +262,16 @@
             this.groupBox4.Size = new System.Drawing.Size(583, 144);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Health Questions";
+            this.groupBox4.Text = "Safety Questions";
             // 
             // chkSocial
             // 
             this.chkSocial.AutoSize = true;
             this.chkSocial.Location = new System.Drawing.Point(25, 100);
             this.chkSocial.Name = "chkSocial";
-            this.chkSocial.Size = new System.Drawing.Size(297, 24);
+            this.chkSocial.Size = new System.Drawing.Size(271, 24);
             this.chkSocial.TabIndex = 2;
-            this.chkSocial.Text = "Are you following social distancing?";
+            this.chkSocial.Text = "Do you follow social distancing?";
             this.chkSocial.UseVisualStyleBackColor = true;
             // 
             // chkSanitize
@@ -279,9 +279,9 @@
             this.chkSanitize.AutoSize = true;
             this.chkSanitize.Location = new System.Drawing.Point(25, 69);
             this.chkSanitize.Name = "chkSanitize";
-            this.chkSanitize.Size = new System.Drawing.Size(316, 24);
+            this.chkSanitize.Size = new System.Drawing.Size(243, 24);
             this.chkSanitize.TabIndex = 1;
-            this.chkSanitize.Text = "Are you sanitizing your hands always?";
+            this.chkSanitize.Text = "Do you sanitize your hands?";
             this.chkSanitize.UseVisualStyleBackColor = true;
             // 
             // chkMasks
@@ -289,9 +289,9 @@
             this.chkMasks.AutoSize = true;
             this.chkMasks.Location = new System.Drawing.Point(25, 38);
             this.chkMasks.Name = "chkMasks";
-            this.chkMasks.Size = new System.Drawing.Size(270, 24);
+            this.chkMasks.Size = new System.Drawing.Size(255, 24);
             this.chkMasks.TabIndex = 0;
-            this.chkMasks.Text = "Are you wearing masks always?";
+            this.chkMasks.Text = "Do you wear masks in public?";
             this.chkMasks.UseVisualStyleBackColor = true;
             // 
             // btnSubmit
