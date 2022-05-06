@@ -113,7 +113,7 @@ namespace Covid19_Recommender_System
             if (rdoVaccinated.Checked && questionCount==3 && lstYourSymptoms.Items.Count==0)
             {
                 txtRecommendation.BackColor = Color.Green;
-                recommand = "You are Safe! No action needed.";
+                recommand = "You are Safe! No action is needed.";
             }
             if(lstYourSymptoms.Items.Count <= 3 && lstYourSymptoms.Items.Count >= 1 || questionCount<3 || rdoNotVaccinated.Checked)
             {
@@ -123,7 +123,7 @@ namespace Covid19_Recommender_System
             if(lstYourSymptoms.Items.Count > 3)
             {
                 txtRecommendation.BackColor = Color.Red;
-                recommand = "You may be in Danger! Visit the nearest treatment centre.";
+                recommand = "You may be in Danger! Visit the nearest treatment center.";
             }
 
             details += "\r\n******* Personal Details *******\n";
@@ -153,7 +153,7 @@ namespace Covid19_Recommender_System
                 details += symptoms;
             }
 
-            details += "\r\n\n******* Health Questions *******";
+            details += "\r\n\n******* Safety Questions *******";
 
             details += questionAnswers;
 
