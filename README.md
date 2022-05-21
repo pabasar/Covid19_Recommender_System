@@ -3,24 +3,29 @@ An application to allow a person to enter details in categories such as personal
 
 ### Sample Output
 ******* Personal Details *******
+
 Name: John Smith
 Age: 26 years old
 NIC: 962137543V
 
 ******* Vaccination Details *******
+
 Vaccine: Sinopharm
 
 ******* Symptoms *******
+
 Cough
 Fever
 
 
 ******* Safety Questions *******
+
 Do you wear masks in public? : Yes
 Do you sanitize your hands? : Yes
 Do you follow social distancing? : No
 
 ******* Recommendation *******
+
 You may not be Safe! Home quarantine is recommended.
 
 ### User Interfaces
